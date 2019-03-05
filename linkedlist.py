@@ -2,6 +2,9 @@ class Node:
     def __init__(self, value=None, next=None):
         self.value, self.next = value, next
 
+    def __repr__(self):
+        return f'Node({self.value})'
+
 
 class LinkedList:
     def __init__(self, maxsize=None):
@@ -81,19 +84,6 @@ class LinkedList:
             del node
         self.root.next = None
         self.length = 0
-
-    def insert(self, value, new_value):
-        curnode = self.root.next
-        node = Node(new_value)
-        while curnode is not self.tailnode:
-            nextnode = curnode.next
-            if nextnode.value == value:
-                curnode.next = node
-                node.next = nextnode
-                return 1
-            else:
-                curnode = curnode.next
-        return -1
 
 
 def test_linked_list():
